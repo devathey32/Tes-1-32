@@ -2,79 +2,28 @@ export function createLandingPage() {
   const section = document.createElement('section');
   section.className = 'page landing-page';
   section.innerHTML = `
-    <div class="landing-container">
-      <div class="hero">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            <span class="word" style="animation-delay: 0.1s">Selamat</span>
-            <span class="word" style="animation-delay: 0.2s">Datang</span>
-            <span class="word" style="animation-delay: 0.3s">di</span>
-            <span class="word highlight" style="animation-delay: 0.4s">Kelas</span>
-            <span class="word highlight" style="animation-delay: 0.5s">Kita</span>
-          </h1>
-          <p class="hero-subtitle blur-clear" style="animation-delay: 0.6s">
-            Portal informasi kelas yang modern, praktis, dan selalu update
-          </p>
-          <div class="hero-actions" style="animation-delay: 0.8s; opacity: 0;">
-            <button class="btn btn-primary" id="enterDashboard">
-              Lihat Dashboard
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-left: 8px;">
-                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="floating-card card-1">
-            <div class="icon-wrapper">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <p>Jadwal Pelajaran</p>
-          </div>
-          <div class="floating-card card-2">
-            <div class="icon-wrapper">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
-                <line x1="9" y1="4" x2="9" y2="10" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <p>Jadwal Piket</p>
-          </div>
-          <div class="floating-card card-3">
-            <div class="icon-wrapper">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                <path d="M23 21V19C23 18.0 22.5 17 22 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 3.5C17 4 17.5 5 17.5 6C17.5 7 17 8 16 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <p>Info Kelas</p>
-          </div>
-        </div>
-      </div>
+    <div class="landing-wrapper">
+      <div class="landing-bg-gradient"></div>
+      <div class="landing-bg-ellipse"></div>
 
-      <div class="features">
-        <div class="feature-card" style="animation-delay: 1s">
-          <div class="feature-icon">📚</div>
-          <h3>Jadwal Lengkap</h3>
-          <p>Akses jadwal pelajaran mingguan dengan mudah dan cepat</p>
+      <div class="landing-content">
+        <div class="landing-logo-box fade-in-blur">
+          <svg class="landing-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="16" fill="#3B82F6"/>
+            <path d="M32 18L24 30H40L32 18Z" fill="white"/>
+            <path d="M20 35H44L44 42C44 44.2091 42.2091 46 40 46H24C21.7909 46 20 44.2091 20 42V35Z" fill="white"/>
+          </svg>
         </div>
-        <div class="feature-card" style="animation-delay: 1.1s">
-          <div class="feature-icon">🧹</div>
-          <h3>Piket Teratur</h3>
-          <p>Sistem pembagian piket yang adil dan terorganisir</p>
-        </div>
-        <div class="feature-card" style="animation-delay: 1.2s">
-          <div class="feature-icon">📋</div>
-          <h3>Info Terkini</h3>
-          <p>Informasi kelas yang selalu update dan akurat</p>
-        </div>
+
+        <h1 class="landing-title fade-in-up">Selamat datang di Kavitwo Connect</h1>
+        <p class="landing-subtitle fade-in-up">Pusat informasi kelas DKV 2</p>
+
+        <button class="btn-dashboard" id="enterDashboard">
+          <span>Dashboard</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
     </div>
   `;
@@ -82,241 +31,211 @@ export function createLandingPage() {
   const style = document.createElement('style');
   style.textContent = `
     .landing-page {
-      background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-      position: relative;
+      width: 100%;
+      min-height: 100vh;
       overflow: hidden;
     }
 
-    .landing-container {
-      min-height: 100vh;
-      padding: var(--spacing-2xl) var(--spacing-md);
-    }
-
-    .hero {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-3xl);
-      align-items: center;
-      min-height: 80vh;
-      padding: var(--spacing-xl) 0;
-    }
-
-    .hero-content {
-      z-index: 2;
-    }
-
-    .hero-title {
-      margin-bottom: var(--spacing-md);
+    .landing-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100vh;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.3em;
+      align-items: center;
+      justify-content: center;
+      background: #f8f9fa;
     }
 
-    .word {
-      display: inline-block;
+    .landing-bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #a8d5ff 0%, #d0b8ff 50%, #f0f0f0 100%);
+      clip-path: ellipse(100% 100% at 50% 35%);
+    }
+
+    .landing-bg-ellipse {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1000px;
+      height: 500px;
+      background: white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .landing-logo-box {
+      margin-bottom: 0.5rem;
+    }
+
+    .landing-logo {
+      width: 120px;
+      height: 120px;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+    }
+
+    .landing-title {
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 600;
+      color: #000;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .landing-subtitle {
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: clamp(1rem, 3vw, 1.375rem);
+      font-weight: 400;
+      color: #787878;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-dashboard {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.75rem;
+      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+      color: white;
+      border: none;
+      border-radius: 55px;
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+      margin-top: 0.5rem;
+    }
+
+    .btn-dashboard:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-dashboard:active {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-arrow {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-dashboard:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    .fade-in-blur {
+      animation: fadeInBlur 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       opacity: 0;
-      animation: wordAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .word.highlight {
-      background: linear-gradient(135deg, #0071e3 0%, #00a8ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .landing-subtitle {
+      animation-delay: 0.2s;
     }
 
-    @keyframes wordAppear {
+    .btn-dashboard {
+      animation-delay: 0.4s;
+      opacity: 0;
+    }
+
+    @keyframes fadeInBlur {
       from {
         opacity: 0;
-        transform: translateY(30px) rotateX(-90deg);
-        filter: blur(10px);
+        filter: blur(12px);
       }
       to {
         opacity: 1;
-        transform: translateY(0) rotateX(0);
         filter: blur(0);
       }
     }
 
-    .hero-subtitle {
-      font-size: clamp(1.125rem, 2vw, 1.5rem);
-      color: var(--text-secondary);
-      margin-bottom: var(--spacing-xl);
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    .hero-actions {
-      animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
     @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
       to {
         opacity: 1;
         transform: translateY(0);
       }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
     }
 
-    .hero-visual {
-      position: relative;
-      height: 600px;
-    }
-
-    .floating-card {
-      position: absolute;
-      background: white;
-      padding: var(--spacing-md);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--spacing-sm);
-      animation: float 6s ease-in-out infinite;
-      opacity: 0;
-      animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards, float 6s ease-in-out infinite;
-    }
-
-    .floating-card p {
-      font-weight: 500;
-      color: var(--text-primary);
-      white-space: nowrap;
-    }
-
-    .icon-wrapper {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, #0071e3 0%, #00a8ff 100%);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
-
-    .card-1 {
-      top: 10%;
-      left: 10%;
-      animation-delay: 0.9s, 0s;
-    }
-
-    .card-2 {
-      top: 40%;
-      right: 15%;
-      animation-delay: 1.1s, 2s;
-    }
-
-    .card-3 {
-      bottom: 15%;
-      left: 25%;
-      animation-delay: 1.3s, 4s;
-    }
-
-    @keyframes cardAppear {
-      from {
-        opacity: 0;
-        transform: scale(0.8) translateY(40px);
-        filter: blur(10px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    .features {
-      max-width: 1200px;
-      margin: var(--spacing-3xl) auto 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-lg);
-    }
-
-    .feature-card {
-      background: white;
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      opacity: 0;
-      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .feature-icon {
-      font-size: 3rem;
-      margin-bottom: var(--spacing-md);
-    }
-
-    .feature-card h3 {
-      margin-bottom: var(--spacing-sm);
-      color: var(--text-primary);
-    }
-
-    .feature-card p {
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    @media (max-width: 968px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-        text-align: center;
+    @media (max-width: 768px) {
+      .landing-wrapper {
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 0;
       }
 
-      .hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-visual {
-        height: 400px;
-        margin-top: var(--spacing-xl);
-      }
-
-      .floating-card {
-        transform: scale(0.85);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .landing-container {
-        padding: var(--spacing-lg) var(--spacing-sm);
-      }
-
-      .hero {
-        min-height: auto;
-        padding: var(--spacing-lg) 0;
-      }
-
-      .hero-visual {
+      .landing-bg-ellipse {
+        width: 600px;
         height: 300px;
       }
 
-      .floating-card {
-        transform: scale(0.75);
+      .landing-content {
+        gap: 1.25rem;
+      }
+
+      .landing-logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      .btn-dashboard {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .landing-bg-gradient {
+        clip-path: ellipse(150% 100% at 50% 30%);
+      }
+
+      .landing-bg-ellipse {
+        width: 400px;
+        height: 200px;
+      }
+
+      .landing-logo {
+        width: 80px;
+        height: 80px;
+      }
+
+      .landing-title {
+        font-size: 1.75rem;
+      }
+
+      .landing-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .btn-dashboard {
+        font-size: 1rem;
+        padding: 0.625rem 1.5rem;
       }
     }
   `;
