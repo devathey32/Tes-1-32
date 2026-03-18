@@ -1,8 +1,16 @@
 import { createLandingPage } from './pages/landing.js';
 import { createDashboardPage } from './pages/dashboard.js';
 
+if (typeof window === 'undefined') {
+  throw new Error('This application requires a browser environment');
+}
+
 let currentPage = 'landing';
 const app = document.getElementById('app');
+
+if (!app) {
+  throw new Error('App container not found');
+}
 
 const pageTransitionStyle = document.createElement('style');
 pageTransitionStyle.textContent = `
@@ -67,7 +75,9 @@ async function navigateToPage(pageName) {
     app.appendChild(newPage);
     currentPage = pageName;
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined' && window.scrollTo) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 }
 

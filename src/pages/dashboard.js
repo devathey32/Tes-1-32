@@ -13,13 +13,15 @@ export async function createDashboardPage() {
       getAllPiket()
     ]);
 
+    const hasData = classInfo || (allSchedules && allSchedules.length > 0) || (allPiket && allPiket.length > 0);
+
     const schedulesByDay = DAYS.reduce((acc, day) => {
-      acc[day] = allSchedules.filter(s => s.day === day);
+      acc[day] = (allSchedules || []).filter(s => s.day === day);
       return acc;
     }, {});
 
     const piketByDay = DAYS.reduce((acc, day) => {
-      acc[day] = allPiket.filter(p => p.day === day);
+      acc[day] = (allPiket || []).filter(p => p.day === day);
       return acc;
     }, {});
 
@@ -534,12 +536,82 @@ export async function createDashboardPage() {
     console.error('Error loading dashboard:', error);
     section.innerHTML = `
       <div class="dashboard-container">
-        <div class="error-state">
-          <h2>Terjadi Kesalahan</h2>
-          <p>Gagal memuat data. Silakan coba lagi.</p>
+        <header class="dashboard-header">
+          <div class="header-content">
+            <button class="btn-back" id="backToLanding">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="header-text">
+              <h1 class="fade-in">Dashboard Kelas</h1>
+            </div>
+          </div>
+        </header>
+        <div class="error-state card">
+          <div style="text-align: center; padding: var(--spacing-xl);">
+            <div style="font-size: 4rem; margin-bottom: var(--spacing-md);">📊</div>
+            <h2 style="margin-bottom: var(--spacing-sm); color: var(--text-primary);">Data Belum Tersedia</h2>
+            <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+              Koneksi ke database belum dikonfigurasi atau data belum diisi.
+            </p>
+          </div>
         </div>
       </div>
     `;
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .dashboard-page {
+        background: var(--surface);
+        min-height: 100vh;
+      }
+      .dashboard-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: var(--spacing-lg) var(--spacing-md) var(--spacing-3xl);
+      }
+      .dashboard-header {
+        margin-bottom: var(--spacing-xl);
+      }
+      .header-content {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+      }
+      .btn-back {
+        width: 48px;
+        height: 48px;
+        border: none;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        color: var(--text-primary);
+      }
+      .btn-back:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-md);
+      }
+      .error-state {
+        margin-top: var(--spacing-xl);
+      }
+    `;
+    document.head.appendChild(style);
+
+    setTimeout(() => {
+      const backBtn = section.querySelector('#backToLanding');
+      if (backBtn) {
+        backBtn.addEventListener('click', () => {
+          const event = new CustomEvent('navigate', { detail: { page: 'landing' } });
+          document.dispatchEvent(event);
+        });
+      }
+    }, 100);
   }
 
   return section;
